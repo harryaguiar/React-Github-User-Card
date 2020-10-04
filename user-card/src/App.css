@@ -1,0 +1,84 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body{
+  background-image: url("./background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.App {
+  text-align: center;
+}
+img{
+  width: 150px;
+  padding: 1rem;
+  border-radius: 25px;
+}
+.image-div{
+  width: 50%;
+  text-align: center;
+}
+header{
+  background: #778899;
+color: white;
+font-family: 'Peddana', serif;
+font-size: 150%;
+}
+.header-div{
+  letter-spacing: 4px;
+  margin: 2rem;
+  font-size: 90%;
+  font-style: italic;
+}
+.header-div p, h1{
+  padding: 1rem;
+}
+.user-info{
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 120%;
+  width: 50%;
+}
+.user-info h1, p{
+  align-self: flex-start;
+}
+.user-info p{
+  line-height: 2rem;
+}
+.github-card{
+  font-family: 'Piazzolla', serif;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 2rem;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px white;
+   
+}
+
+
