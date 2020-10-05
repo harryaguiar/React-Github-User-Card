@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function GitHubCard (props) {
+function FollowersCard (props) {
     return(
         <div className="github-card">
             <div className="image-div">
@@ -18,4 +18,4 @@ function GitHubCard (props) {
         </div>
     )
 }
-export default GitHubCard;
+export default FollowersCard;
