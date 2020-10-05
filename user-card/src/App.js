@@ -58,7 +58,7 @@ axios
         <Header  />
         <SearchFollowers  fetchFollowers={this.fetchFollowers} username={this.state.username} changeHandler={this.changeHandler}/>
         <GitHubCard  data={this.state.data}/>
-        {/* <Followers /> */}
+        <Followers />
         
       </div>
     );
