@@ -1,26 +1,68 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from "axios";
+import Header from "./components/Header";
+import GitHubCard from "./components/GitHubCard";
+import SearchFollowers from "./components/SearchBar";
+import Followers from "./components/Followers";
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Git Hub - User-Card
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(){
+    console.log("constructor function running");
+    super();
+    this.state = {
+      data: [],
+      // followers: [],
+      username: ""
+    }
+  }
+  componentDidMount(){
+console.log("CDM running");
+axios
+  .get(`https://api.github.com/users/harryaguiar`)
+  .then((res) => {
+    console.log(res);
+    this.setState({...this.state, data: res.data});
+    //console.log(this.state.data)
+  })
+  .catch((err) => console.log("api call error: ", err))
+  }
+  fetchFollowers = (e) => {
+    console.log("fetching followers");
+     e.preventDefault();
+    axios 
+      .get(`https://api.github.com/users/${this.state.username}`)
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          ...this.state,
+          data: res.data,
+          username:""
+        })
+      })
+      .catch((err) => console.log(err))
+    
+  }
+  changeHandler = (e) => {
+    this.setState({...this.state,
+      username: e.target.value
+    });
+
+}
+  
+  render(){
+    console.log("render function running");
+    return (
+      <div className="App">
+        <Header  />
+        <SearchFollowers  fetchFollowers={this.fetchFollowers} username={this.state.username} changeHandler={this.changeHandler}/>
+        <GitHubCard  data={this.state.data}/>
+        <Followers />
+        
+      </div>
+    );
+  }
+  
 }
 
 export default App;
